@@ -57,9 +57,11 @@ printf("\nThe deleted element is\n",elem);
 int main()
 {
 int ch;
+char opt;
 create();
 display();
-printf("\n\n--------Menu ----------\n");
+do{
+   printf("\n\n--------Menu ----------\n");
 printf("1.Insert\n 2.Delete\n 3.Exit\n");
 printf(" ");
 printf("\nEnter your choice: ");
@@ -77,5 +79,9 @@ switch(ch)
     default: printf("\nInvalid choice:\n");
             break;
 }
+printf("\ndo you want to try again type (y/n): ");
+scanf(" %c",&opt);
+}while(opt == 'y' || opt == 'Y');
+
 return 0;
 }
