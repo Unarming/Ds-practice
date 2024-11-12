@@ -2,7 +2,6 @@
 // The program should be menu-driven and allow users to input the array and the number they are searching for.
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int search(int arr[], int n, int x) {
     int i;
@@ -14,7 +13,7 @@ int search(int arr[], int n, int x) {
 
 int main() {
     int n, x, i, choice;
-    int *arr = NULL;
+    int arr[100]; // Assuming a maximum size of 100 for the array
 
     while (1) {
         printf("\nMenu:\n");
@@ -28,21 +27,12 @@ int main() {
             case 1:
                 printf("Enter number of elements in array: ");
                 scanf("%d", &n);
-                arr = (int *)malloc(n * sizeof(int));
-                if (arr == NULL) {
-                    printf("Memory allocation failed\n");
-                    return 1;
-                }
                 printf("Enter %d elements: ", n);
                 for (i = 0; i < n; i++) {
                     scanf("%d", &arr[i]);
                 }
                 break;
             case 2:
-                if (arr == NULL) {
-                    printf("Array not initialized. Please input the array first.\n");
-                    break;
-                }
                 printf("Enter element to search: ");
                 scanf("%d", &x);
                 int result = search(arr, n, x);
@@ -52,7 +42,6 @@ int main() {
                     printf("Element is present at index: %d\n", result);
                 break;
             case 3:
-                free(arr);
                 return 0;
             default:
                 printf("Invalid choice. Please try again.\n");
