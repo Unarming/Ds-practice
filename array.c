@@ -75,7 +75,7 @@ switch(ch)
             display();
             break;
     case 3:
-            break;
+            return 0;
     default: printf("\nInvalid choice:\n");
             break;
 }
